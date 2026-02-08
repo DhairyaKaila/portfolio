@@ -2,6 +2,22 @@ import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import { ArrowRight, X } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
+// ===== IMAGE IMPORTS (ADD THIS AT TOP) =====
+import website1 from "../assets/website1.webp";
+import website2 from "../assets/website2.webp";
+import software1 from "../assets/software1.webp";
+import software2 from "../assets/software2.webp";
+
+import cert1 from "../assets/cert1.jpg";
+import cert2 from "../assets/cert2.jpg";
+import cert3 from "../assets/cert3.jpg";
+import cert4 from "../assets/cert4.jpg";
+
+import financeImg from "../assets/e6a616504e37b8d6e1a4bb13678c35dc.webp";
+import healthImg from "../assets/original-fc6b92e9f83ccd78e5eab377f75c8003.webp";
+// =========================================
+
+
 interface Project {
   id: number;
   year: string;
@@ -62,143 +78,103 @@ const projectCards = [
     title: "E-commerce Platform",
     description: "Modern shopping experience with seamless checkout",
     category: "Website",
-    image: "/src/assets/website1.webp",
+    image: website1,
     fullDescription: "A comprehensive e-commerce platform built with modern technologies, featuring user authentication, payment integration, inventory management, and real-time order tracking.",
     technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    gallery: [
-      "/src/assets/website1.webp",
-      "/src/assets/website1.webp",
-      "/src/assets/website1.webp"
-    ]
+    gallery: [website1, website1, website1]
   },
   {
     id: 2,
     title: "Finance Tracker App",
     description: "Mobile app for personal finance management",
     category: "Application",
-    image: "/src/assets/e6a616504e37b8d6e1a4bb13678c35dc.webp",
+    image: financeImg,
     fullDescription: "A comprehensive finance tracking application that helps users manage budgets, track expenses, and visualize spending patterns with interactive charts and reports.",
     technologies: ["React Native", "Firebase", "Redux", "Charts.js"],
-    gallery: [
-      "/src/assets/e6a616504e37b8d6e1a4bb13678c35dc.webp",
-      "/src/assets/e6a616504e37b8d6e1a4bb13678c35dc.webp",
-      "/src/assets/e6a616504e37b8d6e1a4bb13678c35dc.webp"
-    ]
+    gallery: [financeImg, financeImg, financeImg]
   },
   {
     id: 3,
     title: "Task Management Dashboard",
     description: "SaaS platform for team collaboration",
     category: "Software",
-    image: "/src/assets/software1.webp",
+    image: software1,
     fullDescription: "A powerful task management SaaS platform designed for teams, featuring real-time collaboration, project tracking, and comprehensive analytics.",
     technologies: ["Vue.js", "Express", "PostgreSQL", "Socket.io"],
-    gallery: [
-      "/src/assets/software1.webp",
-      "/src/assets/software1.webp",
-      "/src/assets/software1.webp"
-    ]
+    gallery: [software1, software1, software1]
   },
   {
     id: 4,
     title: "Portfolio Website",
     description: "Creative portfolio with modern design",
     category: "Website",
-    image: "/src/assets/website2.webp",
+    image: website2,
     fullDescription: "A stunning portfolio website showcasing creative work with smooth animations, responsive design, and optimized performance.",
     technologies: ["Next.js", "Tailwind CSS", "Framer Motion", "Vercel"],
-    gallery: [
-      "/src/assets/website2.webp",
-      "/src/assets/website2.webp",
-      "/src/assets/website2.webp"
-    ]
+    gallery: [website2, website2, website2]
   },
   {
     id: 5,
     title: "Design Certificate",
     description: "Professional UX Design certification",
     category: "Certificate",
-    image: "/src/assets/cert1.jpg",
+    image: cert1,
     fullDescription: "Professional certification in UX Design covering user research, interface design, prototyping, and usability testing methodologies.",
     technologies: ["Figma", "Adobe XD", "User Research", "Prototyping"],
-    gallery: [
-      "/src/assets/cert1.jpg",
-      "/src/assets/cert2.jpg",
-      "/src/assets/cert3.jpg",
-      "/src/assets/cert4.jpg"
-    ]
+    gallery: [cert1, cert2, cert3, cert4]
   },
   {
     id: 6,
     title: "Healthcare App",
     description: "Patient management and appointment system",
     category: "Application",
-    image: "/src/assets/original-fc6b92e9f83ccd78e5eab377f75c8003.webp",
+    image: healthImg,
     fullDescription: "A comprehensive healthcare application for patient management, appointment scheduling, and medical record tracking with HIPAA compliance.",
     technologies: ["React Native", "Node.js", "MySQL", "AWS"],
-    gallery: [
-      "/src/assets/original-fc6b92e9f83ccd78e5eab377f75c8003.webp",
-      "/src/assets/original-fc6b92e9f83ccd78e5eab377f75c8003.webp",
-      "/src/assets/original-fc6b92e9f83ccd78e5eab377f75c8003.webp"
-    ]
+    gallery: [healthImg, healthImg, healthImg]
   },
   {
     id: 7,
     title: "CRM Software",
     description: "Customer relationship management system",
     category: "Software",
-    image: "/src/assets/software2.webp",
+    image: software2,
     fullDescription: "A comprehensive CRM software solution for managing customer relationships, sales pipelines, and business analytics with advanced reporting features.",
     technologies: ["React", "Node.js", "MongoDB", "Docker"],
-    gallery: [
-      "/src/assets/software2.webp",
-      "/src/assets/software2.webp",
-      "/src/assets/software2.webp"
-    ]
+    gallery: [software2, software2, software2]
   },
   {
     id: 8,
     title: "UI/UX Certificate",
     description: "User interface and experience design certification",
     category: "Certificate",
-    image: "/src/assets/cert2.jpg",
+    image: cert2,
     fullDescription: "Advanced certification in UI/UX design covering modern design principles, user research methodologies, and prototyping techniques.",
     technologies: ["Figma", "Sketch", "Adobe XD", "Principle"],
-    gallery: [
-      "/src/assets/cert2.jpg",
-      "/src/assets/cert2.jpg",
-      "/src/assets/cert2.jpg"
-    ]
+    gallery: [cert2, cert2, cert2]
   },
   {
     id: 9,
     title: "Web Development Certificate",
     description: "Full-stack web development certification",
     category: "Certificate",
-    image: "/src/assets/cert3.jpg",
+    image: cert3,
     fullDescription: "Comprehensive certification in modern web development covering frontend and backend technologies, database design, and deployment strategies.",
     technologies: ["HTML", "CSS", "JavaScript", "React"],
-    gallery: [
-      "/src/assets/cert3.jpg",
-      "/src/assets/cert3.jpg",
-      "/src/assets/cert3.jpg"
-    ]
+    gallery: [cert3, cert3, cert3]
   },
   {
     id: 10,
     title: "Mobile Development Certificate",
     description: "iOS and Android development certification",
     category: "Certificate",
-    image: "/src/assets/cert4.jpg",
+    image: cert4,
     fullDescription: "Professional certification in mobile app development covering native and cross-platform technologies for iOS and Android applications.",
     technologies: ["React Native", "Flutter", "Swift", "Kotlin"],
-    gallery: [
-      "/src/assets/cert4.jpg",
-      "/src/assets/cert4.jpg",
-      "/src/assets/cert4.jpg"
-    ]
+    gallery: [cert4, cert4, cert4]
   }
 ];
+
 
 const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
   return (
